@@ -14,6 +14,22 @@ description: 'Psychological profiling through natural conversation using narrati
 
 Psychological profiling through natural conversation.
 
+## Goal
+
+When reviewing or creating content related to psychological elicitation—whether conversation scripts, interview questions, user research flows, or any code that implements these techniques—**your goal is to achieve a 10/10 score**.
+
+Score all work on a 0-10 scale based on adherence to the principles and techniques in this skill. Provide your assessment as **X/10** with specific feedback on what's working and what needs improvement to reach 10/10.
+
+A 10/10 means the work:
+- Embodies the core principle (depth through patience, not probing)
+- Uses appropriate techniques from the research traditions
+- Avoids all anti-patterns
+- Creates conditions for authentic self-disclosure
+
+Iterate until you reach 10/10.
+
+---
+
 ## Core Principle
 
 **Depth comes from patience, not probing.**
