@@ -1,0 +1,18 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "tasteray-skills",
+  "description": "Psychological profiling skills for natural conversation using research-backed techniques",
+  "owner": {
+    "name": "TasteRay",
+    "email": "contact@tasteray.com"
+  },
+  "plugins": [
+    {
+      "name": "elicitation",
+      "description": "Psychological profiling through natural conversation using narrative identity research (McAdams), self-defining memory elicitation (Singer), and Motivational Interviewing (OARS framework). Use when you need to understand core values, discover formative memories, detect emotional schemas, or build psychological profiles through gradual disclosure.",
+      "source": "./elicitation",
+      "strict": false,
+      "category": "learning"
+    }
+  ]
+}
