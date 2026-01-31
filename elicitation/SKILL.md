@@ -8,6 +8,10 @@ description: 'Psychological profiling through natural conversation using narrati
   (5) conduct user interviews that reveal deep insights, (6) design conversational flows
   for personal discovery, (7) identify identity themes like redemption and contamination narratives,
   (8) elicit authentic self-disclosure without interrogation.'
+license: MIT
+metadata:
+  author: tasteray
+  version: "1.0"
 ---
 
 # Elicitation

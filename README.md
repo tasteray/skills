@@ -4,6 +4,20 @@ Psychological profiling skills for natural conversation.
 
 ## Installation
 
+### Via Claude Code Plugin Marketplace
+
+```bash
+# Add the marketplace
+/plugin marketplace add tasteray/skills
+
+# Install the elicitation skill
+/plugin install elicitation@tasteray-skills
+```
+
+### Via skills.sh
+
+Install via [skills.sh](https://skills.sh):
+
 ```bash
 # Install a specific skill
 npx skills add tasteray/skills/elicitation
@@ -11,6 +25,48 @@ npx skills add tasteray/skills/elicitation
 # Install all skills
 npx skills add tasteray/skills
 ```
+
+## Repository Structure
+
+```
+skills/
+├── .claude-plugin/
+│   └── marketplace.json   # Marketplace configuration for plugin installation
+├── {skill-name}/
+│   ├── SKILL.md           # Main skill file with YAML frontmatter + markdown instructions
+│   └── references/        # Supporting reference files (optional)
+└── README.md
+```
+
+## Skill File Format
+
+Each skill has a `SKILL.md` with this structure:
+
+```yaml
+---
+name: skill-name
+description: Brief description used for skill matching/discovery. Include trigger phrases.
+license: MIT
+metadata:
+  author: tasteray
+  version: "1.0"
+---
+
+# Skill Title
+
+Main skill instructions in markdown...
+```
+
+### Required Fields
+- `name`: Unique identifier (lowercase, hyphens for spaces, max 64 chars)
+- `description`: What the skill does and when to use it (max 1024 chars)
+
+### Recommended Fields (for marketplace)
+- `license`: License name (we use MIT)
+- `metadata.author`: Author/organization name
+- `metadata.version`: Semantic version
+
+The YAML frontmatter `description` field is critical for skill discovery - it should include keywords and trigger phrases that help match user requests to the skill.
 
 ## Available Skills
 
