@@ -1,0 +1,5 @@
+.DS_Store
+*.zip
+*.skill
+node_modules/
+elicitation-literature.txt
