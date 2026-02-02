@@ -13,6 +13,13 @@
       "source": "./elicitation",
       "strict": false,
       "category": "learning"
+    },
+    {
+      "name": "recommendations",
+      "description": "TasteRay API integration for personalized recommendations across verticals (movies, restaurants, products, travel, jobs). Use when you need to recommend items, answer 'what would I like' questions, provide personalized recommendations, rank items for users, explain why something matches their taste, or integrate psychological profiles with recommendation systems.",
+      "source": "./recommendations",
+      "strict": false,
+      "category": "productivity"
     }
   ]
 }

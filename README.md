@@ -73,6 +73,7 @@ The YAML frontmatter `description` field is critical for skill discovery - it sh
 | Skill | Description |
 |-------|-------------|
 | [elicitation](./elicitation/SKILL.md) | Psychological profiling through narrative identity research, self-defining memory elicitation, and Motivational Interviewing |
+| [recommendations](./recommendations/SKILL.md) | TasteRay API integration for personalized recommendations across movies, restaurants, products, travel, and jobs |
 
 ## Elicitation
 
@@ -100,6 +101,38 @@ The elicitation skill enables deep psychological profiling through patient, rese
 - Schwartz's Universal Values elicitation
 - Haight's Structured Life Review
 - Birren's Guided Autobiography themes
+
+## Recommendations
+
+The recommendations skill enables personalized recommendations through the TasteRay API.
+
+**Use when you need to:**
+- Recommend movies, restaurants, products, travel destinations, or jobs
+- Answer "what would I like" questions
+- Provide personalized recommendations based on preferences
+- Rank or score items for a user
+- Explain why something matches a user's taste
+- Build recommendation context from conversation
+
+**Example prompts:**
+- "Recommend some movies for me"
+- "What restaurant would I like near downtown?"
+- "Help me find my next travel destination"
+- "Which of these products would be best for me?"
+- "Why would I like this movie?"
+
+**Supported verticals:**
+- Movies & TV
+- Restaurants
+- Products
+- Travel destinations
+- Jobs
+
+**Key patterns:**
+- Context building from conversation (preferences, constraints, history)
+- Confidence-based presentation (0.9+ strong, 0.7-0.9 good, etc.)
+- Integration with elicitation skill for richer psychological context
+- Personalized explanations that connect to stated preferences
 
 ## Copyright & Sources
 
