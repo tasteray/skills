@@ -1,10 +1,12 @@
 # TasteRay Skills
 
-Skills that give Claude the ability to understand people — what drives them, what they value, and what they'll love next.
+Skills that give AI agents the ability to understand people — what drives them, what they value, and what they'll love next.
+
+Built on the open [Agent Skills](https://agentskills.io) standard. Works with [Claude Code](https://claude.ai/code), [Claude Cowork](https://claude.com/blog/cowork-research-preview), [OpenClaw](https://openclaw.ai/), [Cursor](https://cursor.com/), [OpenAI Codex](https://developers.openai.com/codex), [Gemini CLI](https://geminicli.com), [Windsurf](https://codeium.com/windsurf), [GitHub Copilot](https://github.com/features/copilot), [Goose](https://block.github.io/goose/), [Roo Code](https://roocode.com), and [other compatible agents](https://agentskills.io/home).
 
 ## What These Skills Do
 
-TasteRay skills turn Claude into a perceptive conversationalist. Instead of asking blunt survey questions, Claude uses research-backed techniques to understand users through natural dialogue — then applies that understanding to deliver genuinely personalized recommendations.
+TasteRay skills turn your AI agent into a perceptive conversationalist. Instead of asking blunt survey questions, the agent uses research-backed techniques to understand users through natural dialogue — then applies that understanding to deliver genuinely personalized recommendations.
 
 The two skills work together:
 
@@ -13,7 +15,7 @@ The two skills work together:
 
 ## Elicitation
 
-Deep psychological profiling through patient, research-backed conversation. Claude learns to uncover values, motivations, and formative experiences — not by interrogating, but by creating space for authentic self-disclosure.
+Deep psychological profiling through patient, research-backed conversation. Your agent learns to uncover values, motivations, and formative experiences — not by interrogating, but by creating space for authentic self-disclosure.
 
 **What it enables:**
 - Understand someone's core values and motivations
@@ -38,7 +40,7 @@ Deep psychological profiling through patient, research-backed conversation. Clau
 
 ## Recommendations
 
-Personalized recommendations powered by the TasteRay API. Claude builds rich context from conversation — preferences, constraints, history, psychological profile — then delivers recommendations with explanations that connect to what actually matters to the user.
+Personalized recommendations powered by the TasteRay API. Your agent builds rich context from conversation — preferences, constraints, history, psychological profile — then delivers recommendations with explanations that connect to what actually matters to the user.
 
 **Supported verticals:**
 - Movies & TV
@@ -65,7 +67,7 @@ Personalized recommendations powered by the TasteRay API. Claude builds rich con
 
 The [TasteRay API](https://api.tasteray.com) accepts user context in any format (conversation excerpts, preference lists, unstructured profiles) and returns ranked recommendations with match scores, "why match" explanations, and key decision factors. Simple REST JSON interface, <3s p95 latency, 99.9% uptime SLA.
 
-These skills bring TasteRay's capabilities directly into Claude Code — no integration work required.
+These skills bring TasteRay's capabilities directly into any compatible AI agent — no integration work required.
 
 ## Installation
 
