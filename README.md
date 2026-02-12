@@ -1,99 +1,28 @@
 # TasteRay Skills
 
-Psychological profiling skills for natural conversation.
+Skills that give Claude the ability to understand people — what drives them, what they value, and what they'll love next.
 
-## Installation
+## What These Skills Do
 
-### Via Claude Code Plugin Marketplace
+TasteRay skills turn Claude into a perceptive conversationalist. Instead of asking blunt survey questions, Claude uses research-backed techniques to understand users through natural dialogue — then applies that understanding to deliver genuinely personalized recommendations.
 
-```bash
-# Add the marketplace
-/plugin marketplace add tasteray/skills
+The two skills work together:
 
-# Install the elicitation skill
-/plugin install elicitation@tasteray-skills
-```
-
-### Via skills.sh
-
-Install via [skills.sh](https://skills.sh):
-
-```bash
-# Install a specific skill
-npx skills add tasteray/skills/elicitation
-
-# Install all skills
-npx skills add tasteray/skills
-```
-
-## Repository Structure
-
-```
-skills/
-├── .claude-plugin/
-│   └── marketplace.json   # Marketplace configuration for plugin installation
-├── {skill-name}/
-│   ├── SKILL.md           # Main skill file with YAML frontmatter + markdown instructions
-│   └── references/        # Supporting reference files (optional)
-└── README.md
-```
-
-## Skill File Format
-
-Each skill has a `SKILL.md` with this structure:
-
-```yaml
----
-name: skill-name
-description: Brief description used for skill matching/discovery. Include trigger phrases.
-license: MIT
-metadata:
-  author: tasteray
-  version: "1.0"
----
-
-# Skill Title
-
-Main skill instructions in markdown...
-```
-
-### Required Fields
-- `name`: Unique identifier (lowercase, hyphens for spaces, max 64 chars)
-- `description`: What the skill does and when to use it (max 1024 chars)
-
-### Recommended Fields (for marketplace)
-- `license`: License name (we use MIT)
-- `metadata.author`: Author/organization name
-- `metadata.version`: Semantic version
-
-The YAML frontmatter `description` field is critical for skill discovery - it should include keywords and trigger phrases that help match user requests to the skill.
-
-## Available Skills
-
-| Skill | Description |
-|-------|-------------|
-| [elicitation](./elicitation/SKILL.md) | Psychological profiling through narrative identity research, self-defining memory elicitation, and Motivational Interviewing |
-| [recommendations](./recommendations/SKILL.md) | TasteRay API integration for personalized recommendations across movies, restaurants, products, travel, and jobs |
+1. **Elicitation** — Understands who someone is through conversation
+2. **Recommendations** — Uses that understanding to recommend what they'll love
 
 ## Elicitation
 
-The elicitation skill enables deep psychological profiling through patient, research-backed conversational techniques.
+Deep psychological profiling through patient, research-backed conversation. Claude learns to uncover values, motivations, and formative experiences — not by interrogating, but by creating space for authentic self-disclosure.
 
-**Use when you need to:**
+**What it enables:**
 - Understand someone's core values and motivations
 - Discover formative memories and life-defining experiences
 - Detect emotional schemas and belief patterns
 - Build psychological profiles through gradual disclosure
 - Conduct user interviews that reveal deep insights
-- Design conversational flows for personal discovery
 
-**Example prompts:**
-- "Help me understand this user's core motivations"
-- "Design an interview to uncover their values"
-- "What questions would reveal their formative experiences?"
-- "Analyze this conversation for psychological patterns"
-
-**Techniques included:**
+**Grounded in research from:**
 - McAdams' Life Story Interview (8 key scenes)
 - Singer's Self-Defining Memory elicitation
 - OARS framework from Motivational Interviewing
@@ -102,24 +31,14 @@ The elicitation skill enables deep psychological profiling through patient, rese
 - Haight's Structured Life Review
 - Birren's Guided Autobiography themes
 
+**Try it:**
+- "Help me understand this user's core motivations"
+- "Design an interview to uncover their values"
+- "Analyze this conversation for psychological patterns"
+
 ## Recommendations
 
-The recommendations skill enables personalized recommendations through the TasteRay API.
-
-**Use when you need to:**
-- Recommend movies, restaurants, products, travel destinations, or jobs
-- Answer "what would I like" questions
-- Provide personalized recommendations based on preferences
-- Rank or score items for a user
-- Explain why something matches a user's taste
-- Build recommendation context from conversation
-
-**Example prompts:**
-- "Recommend some movies for me"
-- "What restaurant would I like near downtown?"
-- "Help me find my next travel destination"
-- "Which of these products would be best for me?"
-- "Why would I like this movie?"
+Personalized recommendations powered by the TasteRay API. Claude builds rich context from conversation — preferences, constraints, history, psychological profile — then delivers recommendations with explanations that connect to what actually matters to the user.
 
 **Supported verticals:**
 - Movies & TV
@@ -128,25 +47,39 @@ The recommendations skill enables personalized recommendations through the Taste
 - Travel destinations
 - Jobs
 
-**Key patterns:**
-- Context building from conversation (preferences, constraints, history)
-- Confidence-based presentation (0.9+ strong, 0.7-0.9 good, etc.)
-- Integration with elicitation skill for richer psychological context
-- Personalized explanations that connect to stated preferences
+**What it enables:**
+- Answer "what would I like?" with genuine personalization
+- Rank and score items based on individual taste
+- Explain *why* something is a good match
+- Combine with elicitation for deeper psychological context
 
-## Copyright & Sources
+**Try it:**
+- "Recommend some movies for me"
+- "What restaurant would I like near downtown?"
+- "Help me find my next travel destination"
+- "Why would I like this movie?"
 
-This skill synthesizes research from:
+## About TasteRay
 
-- **Jefferson Singer** - *The Remembered Self* (1993), Self-Defining Memory Task
-- **Dan McAdams** - *The Redemptive Self* (2006), Life Story Interview
-- **William Miller & Stephen Rollnick** - *Motivational Interviewing* (4th ed., 2023)
-- **Jeffrey Young** - *Schema Therapy: A Practitioner's Guide* (2003)
-- **Shalom Schwartz** - Theory of Basic Human Values (1992)
-- **Barbara Haight** - *Handbook of Structured Life Review* (2007)
-- **James Birren** - *Telling the Stories of Life* (2001)
-- **James Pennebaker & Laura King** - LIWC research (1999)
+[TasteRay](https://www.tasteray.com) is an Emotional AI Recommendations API. It delivers personalized recommendations with human-readable explanations across 25+ verticals — movies, restaurants, travel, jobs, books, music, and more — using frontier LLMs combined with real-time web grounding.
+
+The [TasteRay API](https://api.tasteray.com) accepts user context in any format (conversation excerpts, preference lists, unstructured profiles) and returns ranked recommendations with match scores, "why match" explanations, and key decision factors. Simple REST JSON interface, <3s p95 latency, 99.9% uptime SLA.
+
+These skills bring TasteRay's capabilities directly into Claude Code — no integration work required.
+
+## Installation
+
+Install via [skills.sh](https://skills.sh):
+
+```bash
+# Install a specific skill
+npx skills add tasteray/skills/elicitation
+npx skills add tasteray/skills/recommendations
+
+# Install all skills
+npx skills add tasteray/skills
+```
 
 ## License
 
-MIT License - See [LICENSE](./LICENSE)
+MIT — See [LICENSE](./LICENSE)
