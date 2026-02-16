@@ -2,6 +2,9 @@
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "tasteray-skills",
   "description": "Psychological profiling skills for natural conversation using research-backed techniques",
+  "metadata": {
+    "description": "Psychological profiling skills for natural conversation using research-backed techniques. Includes elicitation (narrative identity, self-defining memories, Motivational Interviewing) and personalized recommendations across movies, restaurants, products, travel, and jobs."
+  },
   "owner": {
     "name": "TasteRay",
     "email": "contact@tasteray.com"
