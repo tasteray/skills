@@ -23,6 +23,13 @@
       "source": "./recommendations",
       "strict": false,
       "category": "productivity"
+    },
+    {
+      "name": "discussion-followups",
+      "description": "Concrete next-step extensions after a deep discussion of a film, scene, song, character, director, or theme. Use when ending a deep analysis with follow-ups — visual companions (clips, video essays), sibling films pivoted from the specific conversation, and bridges that close the emotional loop a deep analysis opens. Enforces the Depth → Bridge → 2–4 typed Exits structure.",
+      "source": "./discussion-followups",
+      "strict": false,
+      "category": "productivity"
     }
   ]
 }

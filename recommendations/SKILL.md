@@ -366,6 +366,26 @@ See: [Presentation Patterns Reference](./references/presentation-patterns.md)
 
 ---
 
+## Integration with Discussion Follow-ups
+
+When recommendations are delivered **inside a deep discussion** (the user just asked a deep analytical question about a film, scene, character, theme, etc.) — rather than as the primary user request — defer presentation to the `discussion-followups` skill.
+
+In that case:
+- This skill provides the candidate films (with confidence scores, "why match" rationale)
+- The `discussion-followups` skill places them into an exits block with conversation-specific pivots
+- The full presentation patterns below are skipped in favor of the compressed exit format (2–4 items, each with a one-line pivot from the current analysis)
+
+**Trigger:** the user's preceding question was a deep dive (scene, song, character, theme, director, comparison) — see the `discussion-followups` skill's "When to Apply" section.
+
+**Rule:** every deep discussion that produces sibling-film recommendations must close with the `discussion-followups` exits structure, not the standalone presentation patterns. The two are sequenced, not redundant:
+
+- `recommendations` answers "what should I watch next?" as a primary request
+- `discussion-followups` answers "what do I do with this feeling I have right now?" as a closing move
+
+See: [Discussion Follow-ups skill](../discussion-followups/SKILL.md)
+
+---
+
 ## Integration with Elicitation
 
 The elicitation skill builds psychological profiles. Use these for richer recommendations.

@@ -8,10 +8,11 @@ Built on the open [Agent Skills](https://agentskills.io) standard. Works with [C
 
 TasteRay skills turn your AI agent into a perceptive conversationalist. Instead of asking blunt survey questions, the agent uses research-backed techniques to understand users through natural dialogue — then applies that understanding to deliver genuinely personalized recommendations.
 
-The two skills work together:
+The skills work together:
 
 1. **Elicitation** — Understands who someone is through conversation
 2. **Recommendations** — Uses that understanding to recommend what they'll love
+3. **Discussion Follow-ups** — Closes every deep discussion with concrete next steps (clips, video essays, sibling films) instead of leaving the user with a wall of analysis
 
 ## Elicitation
 
@@ -61,6 +62,29 @@ Personalized recommendations powered by the TasteRay API. Your agent builds rich
 - "Help me find my next travel destination"
 - "Why would I like this movie?"
 
+## Discussion Follow-ups
+
+Every deep analysis — a scene breakdown, a character study, a thematic dive — should hand the user somewhere to go. This skill enforces the **Depth → Bridge → 2–4 typed Exits** structure on top of any deep response: a one-line bridge that closes the emotional loop, plus 2–4 concrete next steps (clip, video essay, sibling film with a one-line "why this for *you*"), pivoted from the specific conversation rather than generic.
+
+**What it enables:**
+- End deep dives with a multimodal next step (clip, video essay, soundtrack, sibling scene)
+- Surface sibling films with a pivot grounded in the actual conversation, not algorithmic similarity
+- Match the modality of the follow-up to the modality of the question (sensory questions → visual companions; thematic questions → films + essays; craft questions → filmography + interview)
+- Refuse to hallucinate URLs, attributions, or availability claims
+- Gracefully degrade when canonical sources aren't available
+
+**Grounded in:**
+- Choice-overload research (Iyengar & Lepper) — hard cap at 4 exits
+- Hick's Law — one CTA, not competing CTAs
+- Curation-as-trust theory — quality of sources outweighs quantity
+- Multimodal response design — match the modality of the question
+
+**Try it:**
+- "Tell me about the funeral scene in Captain Fantastic" (Type A — Scene/Song/Moment)
+- "Why does this character do what they do?" (Type B — Character/Theme)
+- "Why does this director frame the scene this way?" (Type C — Director/Craft)
+- "How does this compare to [other film]?" (Type D — Comparative)
+
 ## About TasteRay
 
 [TasteRay](https://www.tasteray.com) is an Emotional AI Recommendations API. It delivers personalized recommendations with human-readable explanations across 25+ verticals — movies, restaurants, travel, jobs, books, music, and more — using frontier LLMs combined with real-time web grounding.
@@ -77,6 +101,7 @@ Install via [skills.sh](https://skills.sh):
 # Install a specific skill
 npx skills add tasteray/skills/elicitation
 npx skills add tasteray/skills/recommendations
+npx skills add tasteray/skills/discussion-followups
 
 # Install all skills
 npx skills add tasteray/skills
