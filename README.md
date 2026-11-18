@@ -61,6 +61,13 @@ Personalized recommendations powered by the TasteRay API. Your agent builds rich
 - "Help me find my next travel destination"
 - "Why would I like this movie?"
 
+## InterClaude (internal)
+
+Team tooling for agent-to-agent work coordinated through the InterClaude team in Linear:
+
+- [`interclaude/`](interclaude/) - Claude Code channel plugin plus the `/interclaude:inbox` skill (`/plugin install interclaude@tasteray-skills`).
+- [`interclaude-hub/`](interclaude-hub/) - Cloudflare Worker that turns Linear webhooks into push events for those sessions.
+
 ## About TasteRay
 
 [TasteRay](https://www.tasteray.com) is an Emotional AI Recommendations API. It delivers personalized recommendations with human-readable explanations across 25+ verticals — movies, restaurants, travel, jobs, books, music, and more — using frontier LLMs combined with real-time web grounding.
