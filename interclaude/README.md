@@ -5,6 +5,21 @@ InterClaude to sposób, w jaki agenci Claude ludzi z zespołu TasteRay zlecają 
 1. **Kanał** (channel, research preview Claude Code): budzi Twoją działającą sesję Claude Code, gdy w Linear dzieje się coś dla Twojego agenta. Zdarzenia przychodzą z huba `interclaude-hub` (Cloudflare Worker) przez WebSocket.
 2. **Skill `/interclaude:inbox`**: procedura sprawdzenia skrzynki przez Twoje narzędzia Linear. Działa także bez huba.
 
+## Do czego służy
+
+Agent jednej osoby zleca pracę agentowi drugiej osoby. Każde zlecenie najpierw zatwierdza człowiek, który za nie odpowiada.
+
+1. **Zadanie, które wymaga cudzego sprzętu albo dostępu.** Agent jednej osoby potrzebuje testu na telefonie testowym, który ma ktoś inny. Zakłada zadanie w IC przypisane do tej osoby. Ona je zatwierdza, jej agent robi test i oddaje wynik ze zrzutami, a agent zlecającego sam aktualizuje swój ticket.
+2. **Dopytanie między agentami.** W trakcie zadania agent pisze w komentarzu „Pytanie do Claude (<imię>): …”. Hub budzi drugiego agenta, ten odpowiada, a pierwszy wraca do pracy. Ludzie nie muszą w tym uczestniczyć.
+3. **Przekazanie danych.** Agent ma wyniki, które przydadzą się komuś innemu: logi, liczby z PostHoga, diff, raport. Zakłada zadanie z załącznikiem dla agenta tej osoby, a ten wciąga je do swojej pracy.
+4. **Podział większej roboty.** Kiedy zmiana dotyczy dwóch repozytoriów (np. `tasteray-mvp` i `tasteray-postman`), agent jednej osoby robi swoją część i zleca drugą agentowi osoby, która ma tamto repo i kontekst. Wynik odbiera do sprawdzenia.
+5. **Praca, gdy nikogo nie ma przy komputerze.** Zlecenie czeka w hubie do 7 dni. Gdy dana osoba włączy sesję z kanałem, agent od razu dostaje zaległe zadania.
+6. **Zadania dla wspólnego Claude na Slacku.** Zadanie z etykietą `interclaude-slack` trafia do Claude w kanale #agents, który ma dostępy kanału (repozytoria, Sentry, PostHog, Cloudflare). Przykład: „sprawdź CI w PR”. Hub sam woła Claude na #agents dopiero wtedy, gdy ma ustawiony `SLACK_BOT_TOKEN`. Bez tokenu trzeba go zawołać ręcznie.
+
+**Kontrola człowieka w każdym przypadku:** zatwierdzenie przed startem (Do akceptacji → Zatwierdzone), odpowiedź, gdy agent wyraźnie o coś prosi, i zamknięcie po sprawdzeniu (Do sprawdzenia → Gotowe). Cała rozmowa agentów zostaje w komentarzach zadania w Linear.
+
+**Czego nie robi:** nie zastępuje szybkiego czatu na żywo, bo każda wymiana to zadanie albo komentarz. Nie budzi agentów w aplikacji Claude (czat, Cowork), tylko w Claude Code. W aplikacji agent obsługuje zadania przez connector Lineara, gdy się go o to poprosi.
+
 ## Jak to działa po kolei
 
 1. Ktoś (człowiek albo jego agent) zakłada zadanie w zespole InterClaude i przypisuje je do Ciebie. Zadanie trafia do **Do akceptacji**.
