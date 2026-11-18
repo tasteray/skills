@@ -23,6 +23,12 @@
       "source": "./recommendations",
       "strict": false,
       "category": "productivity"
+    },
+    {
+      "name": "interclaude",
+      "description": "InterClaude: Claude Code channel that wakes your running session when your agent gets work in the InterClaude Linear team (approved task, comment, ready for review, closed), plus the /interclaude:inbox skill that works without the hub too.",
+      "source": "./interclaude",
+      "category": "productivity"
     }
   ]
 }

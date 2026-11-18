@@ -1,0 +1,32 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "interclaude-hub",
+  "account_id": "10a644aff87185c71e6d1a8dc32f8a8d",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-01-04",
+  "workers_dev": true,
+  "observability": { "enabled": true },
+  "durable_objects": {
+    "bindings": [
+      { "name": "USER_HUB", "class_name": "UserHub" },
+      { "name": "DIRECTORY", "class_name": "Directory" }
+    ]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["UserHub", "Directory"] }],
+  // Non-secret configuration. Secrets (set with `wrangler secret put` or in the
+  // Cloudflare dashboard, never here): LINEAR_WEBHOOK_SECRET,
+  // LINEAR_OAUTH_CLIENT_ID, LINEAR_OAUTH_CLIENT_SECRET, SLACK_BOT_TOKEN (optional),
+  // DEBUG_TOKEN (optional). Optional var: SHARED_CLAUDE_LINEAR_USER_ID.
+  "vars": {
+    // Routing is by team id and label id, so renaming the team or the label in Linear does not break it.
+    "LINEAR_TEAM_ID": "29062cef-57b2-473f-9363-54166b22ac17",
+    "LABEL_SHARED_CLAUDE_ID": "d3d4ec48-f359-453a-ab1f-a836b0d7c3b4",
+    "LINEAR_ORG_URL_KEY": "tasteray",
+    "SLACK_CHANNEL_ID": "C0CJECFD8QP",
+    "SLACK_CLAUDE_USER_ID": "U09JLS5J7PT",
+    "STATE_APPROVED": "Zatwierdzone",
+    "STATE_REVIEW": "Do sprawdzenia",
+    "STATES_CLOSED": "Gotowe,Odrzucone",
+    "LABEL_SHARED_CLAUDE": "interclaude-slack"
+  }
+}
