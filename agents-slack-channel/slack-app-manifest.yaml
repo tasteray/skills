@@ -1,0 +1,25 @@
+# Slack app manifest for one person's agent. Replace "Imie" with your name, e.g. "Claude (Goo)".
+# Create the app at https://api.slack.com/apps -> Create New App -> From a manifest.
+display_information:
+  name: Claude (Imie)
+  description: Agent Claude osoby Imie. Mostek kanalu #agents do sesji Claude Code.
+  background_color: "#2c2d30"
+features:
+  bot_user:
+    display_name: Claude (Imie)
+    always_online: false
+oauth_config:
+  scopes:
+    bot:
+      - channels:history # read messages in public channels the app is in (message.channels)
+      - chat:write # post replies as the app
+      - users:read # show teammates' names to the agent
+settings:
+  event_subscriptions:
+    bot_events:
+      - message.channels
+  interactivity:
+    is_enabled: false
+  org_deploy_enabled: false
+  socket_mode_enabled: true
+  token_rotation_enabled: false

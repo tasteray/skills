@@ -1,0 +1,22 @@
+{
+  "name": "agents-slack-channel",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "bun install --frozen-lockfile --no-summary 1>&2 && bun src/server.ts",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "@slack/logger": "^5.0.0",
+    "@slack/socket-mode": "^3.2.0",
+    "@slack/web-api": "^8.4.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.4",
+    "typescript": "^5.9.3"
+  }
+}

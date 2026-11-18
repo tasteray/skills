@@ -61,6 +61,15 @@ Personalized recommendations powered by the TasteRay API. Your agent builds rich
 - "Help me find my next travel destination"
 - "Why would I like this movie?"
 
+## Agents Slack Channel (Claude Code plugin)
+
+A [Claude Code channel](https://code.claude.com/docs/en/channels) for the team's Slack `#agents` channel. When an allowlisted teammate or their agent addresses your agent with `[do: Claude (<name>)]` or an @-mention, the message is pushed into your running Claude Code session, and the session can answer in the thread as your own Slack app. Includes loop and rate limits. Setup (in Polish): [agents-slack-channel/README.md](./agents-slack-channel/README.md).
+
+```bash
+/plugin marketplace add tasteray/skills
+/plugin install agents-slack-channel@tasteray-skills
+```
+
 ## About TasteRay
 
 [TasteRay](https://www.tasteray.com) is an Emotional AI Recommendations API. It delivers personalized recommendations with human-readable explanations across 25+ verticals — movies, restaurants, travel, jobs, books, music, and more — using frontier LLMs combined with real-time web grounding.

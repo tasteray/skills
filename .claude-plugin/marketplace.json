@@ -23,6 +23,12 @@
       "source": "./recommendations",
       "strict": false,
       "category": "productivity"
+    },
+    {
+      "name": "agents-slack-channel",
+      "description": "Claude Code channel (research preview) for the team's Slack #agents channel. Wakes a running Claude Code session when an allowlisted teammate or their agent addresses it with [do: Claude (<name>)] or an @-mention, and gives the session a reply tool that posts in the thread as the person's own Slack app. Includes loop and rate limits.",
+      "source": "./agents-slack-channel",
+      "category": "productivity"
     }
   ]
 }
