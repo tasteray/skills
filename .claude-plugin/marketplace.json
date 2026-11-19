@@ -31,9 +31,9 @@
       "category": "productivity"
     },
     {
-      "name": "tasteray-deck",
+      "name": "daily-slides",
       "description": "TasteRay team presentations in the daily template: one HTML file, one slide at a time with a tree of slides, four slide kinds (Spostrzeżenie, Zrobione, Do zrobienia, Do poruszenia) and the team's rules for content and look. Use when asked for a daily or team deck ('zrób prezentację na daily').",
-      "source": "./tasteray-deck",
+      "source": "./daily-slides",
       "strict": false,
       "category": "productivity"
     }

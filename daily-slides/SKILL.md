@@ -1,9 +1,9 @@
 ---
-name: tasteray-deck
+name: daily-slides
 description: Use when asked for a TasteRay team presentation in the daily template ("zrób prezentację na daily", "slajdy na daily", "deck na spotkanie zespołu"): one HTML file, one slide at a time, a tree of slides on the left. Carries the team's rules for what goes on a slide (one point, dated numbers, no interim A/B results) and how it looks (TasteRay fonts and colours, drawn charts, real screenshots).
 ---
 
-# TasteRay deck
+# Daily slides
 
 You build one self-contained HTML file with `assets/build_deck.py`. The page shows one slide at a
 time; on the left a tree of areas and slides, "Slajd N z M · zostało K" and a progress bar.

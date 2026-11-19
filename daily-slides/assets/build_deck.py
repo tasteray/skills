@@ -367,7 +367,7 @@ svg.g{{max-width:100%;height:auto;max-height:170px;width:auto}}.card svg.g{{alig
 <div class="ctrl"><button id="prev">← wstecz</button><button id="next">dalej →</button></div>
 </main></div>
 <script>
-const MARK={marks},KEY='tasteray-deck-{key}';
+const MARK={marks},KEY='daily-slides-{key}';
 const S=[...document.querySelectorAll('.slide')],tree=document.getElementById('tree');let cur=0,seen=new Set();
 try{{cur=+(localStorage.getItem(KEY)||0);if(!(cur<S.length))cur=0}}catch(e){{}}
 let last='';const links=S.map((s,i)=>{{if(s.dataset.area!==last){{last=s.dataset.area;const h=document.createElement('div');h.className='area';h.textContent=last;tree.appendChild(h)}}const a=document.createElement('a');a.innerHTML=MARK[s.dataset.k];a.appendChild(document.createTextNode(s.dataset.t));a.onclick=()=>go(i);tree.appendChild(a);return a}});

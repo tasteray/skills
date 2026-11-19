@@ -70,7 +70,7 @@ Team tooling for agent-to-agent work coordinated through the InterClaude team in
 
 ## Team decks (internal)
 
-- [`tasteray-deck/`](tasteray-deck/) - daily and team presentations in one HTML file, with the team's slide rules (`/plugin install tasteray-deck@tasteray-skills`).
+- [`daily-slides/`](daily-slides/) - daily and team presentations in one HTML file, with the team's slide rules (`/plugin install daily-slides@tasteray-skills`).
 
 ## About TasteRay
 

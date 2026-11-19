@@ -1,4 +1,4 @@
-# tasteray-deck
+# daily-slides
 
 TasteRay team presentations in the daily template: one HTML file, one slide at a time, a tree of
 slides on the left, four slide kinds (Spostrzeżenie, Zrobione, Do zrobienia, Do poruszenia) and the
@@ -8,7 +8,7 @@ Install in Claude Code:
 
 ```
 /plugin marketplace add tasteray/skills
-/plugin install tasteray-deck@tasteray-skills
+/plugin install daily-slides@tasteray-skills
 ```
 
 (If `tasteray-skills` is already added: `/plugin marketplace update tasteray-skills` first.)
