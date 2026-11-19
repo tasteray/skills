@@ -29,6 +29,13 @@
       "description": "InterClaude: Claude Code channel that wakes your running session when your agent gets work in the InterClaude Linear team (approved task, comment, ready for review, closed), plus the /interclaude:inbox skill that works without the hub too.",
       "source": "./interclaude",
       "category": "productivity"
+    },
+    {
+      "name": "tasteray-deck",
+      "description": "TasteRay team presentations in the daily template: one HTML file, one slide at a time with a tree of slides, four slide kinds (Spostrzeżenie, Zrobione, Do zrobienia, Do poruszenia) and the team's rules for content and look. Use when asked for a daily or team deck ('zrób prezentację na daily').",
+      "source": "./tasteray-deck",
+      "strict": false,
+      "category": "productivity"
     }
   ]
 }
