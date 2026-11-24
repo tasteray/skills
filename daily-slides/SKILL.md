@@ -9,6 +9,10 @@ You build one self-contained HTML file with `assets/build_deck.py`. The page sho
 time; on the left a tree of areas and slides, "Slajd N z M · zostało K" and a progress bar.
 Arrow keys and the tree both navigate; the browser remembers the current slide.
 
+## Self-improving
+
+This file is the single source of truth for the deck rules, and it learns. Every time the person you build for reacts to a slide (a correction, a complaint, or praise of something that finally works), in the same turn: fix the slide, then write the lesson into the rules below as a positive rule with the date and their words in quotes. Sharpen an existing rule instead of adding a near-duplicate; replace a rule they overturned; delete one that went stale. Edit the source in the `tasteray/skills` repository (commit to main, per its CLAUDE.md), not an installed copy. Done when the rule is committed, not only said in the conversation.
+
 ## Work loop
 
 1. **Ask first, then gather.** At the start ask the person, in one message: which period the deck
@@ -31,16 +35,24 @@ Arrow keys and the tree both navigate; the browser remembers the current slide.
 4. **Look at every slide in a browser** at about 1440×900, with the arrow keys. Check: nothing
    clipped or overflowing, Polish letters (ą ę ł ń ś ź ż) drawn in the headline font, the slide
    fits one screen where possible. Fix and look again.
-5. **Deliver** the HTML file path. Never send it to anyone yourself.
+5. **Sync the task tracker.** Every Done or To do slide carries its tracker task id as a small linked chip in the tag line (24.11.2026: "Czy slajdy z wykonanymi zadaniami mają ich symbole z lineara"). The task's column tells the same story as the slide: shipped to the test version but not production is In Review, not Done. Every "next step" a slide promises has a task in the queue; create it if missing.
+6. **Cold read.** Render every slide to PNG and give only the PNGs to a fresh subagent with no context: per slide its one-sentence meaning, what confuses in 5 seconds, a score 1-10, one fix. Tell it the deck owner's fixed choices so it does not argue with them. Fix everything under 9, re-render, re-run. Done when every slide scores 9+, or what remains is only the owner's own choices; say which. (23.11.2026: "Weryfikuj każdy slajd pod kątem czytelności. Musi być 10 na 10.")
+7. **Deliver** the HTML file path. Never send it to anyone yourself.
 
 ## Rules for content
 
 1. One slide = one point and one chart. Two points = two slides. Nothing changed = no numbers slide.
+   No teletext: a headline of about eight words, labels of two to five words, one short grey
+   source line; the rest is said aloud (23.11.2026: "Na slajdach nie może być teletekstu. Ludzie
+   tego nie będą czytać.").
 2. The headline (`h2`) is the point: what we did, what we will do, or what the data shows and why.
-   Never a bare problem or a state ("działa, ale…").
+   Never a bare problem or a state ("działa, ale…"). It matches the picture exactly, numbers
+   included ("Do aplikacji trafia 27 zamiast 5, ale znika 33 zamiast 10"). A cause the data only
+   shows alongside is written as such ("Spadek przyszedł razem ze zniknięciem AD-25").
 3. "Fixed X" alone is not a point. A numbers slide needs a consequence (in the headline or caption).
-4. Every number carries its date range and says what it counts ("41 z 150 osób, 12.11 do 18.11").
-   No number without a range.
+4. Every number carries its date range, says what it counts, and shows its base ("41 z 150 osób,
+   12.11 do 18.11"; under a normalised "100": "z 256 kont"). No number without a range. A number
+   from one test account says so; an estimate says "ok.".
 5. Compare against several weeks, never against one peak week.
 6. Breakdowns (country, web vs app, variant, source) only when the groups differ and that
    difference is the point; then show that one cut. Default is the overall number.
@@ -48,12 +60,17 @@ Arrow keys and the tree both navigate; the browser remembers the current slide.
    leave them out.
 8. Never show a running A/B test's interim result; a split goes on a slide only after its planned end.
 9. Use the real names of things people see (screen titles, button labels), never "pytanie 1",
-   "krok 2".
+   "krok 2". An ad is its code plus its headline: AD-25 „Wiesz, czego nie chcesz?” (23.11.2026:
+   "nie piszesz w ogóle jaka to jest reklama"). Use a non-breaking hyphen in codes so they never wrap.
 10. Decisions and deadlines only if someone actually made them; a tracker due date is not a decision.
 11. Source of truth is what happened (commits, production, data), not the task tracker.
 12. Conclusions and decisions, never addressees ("Do X:") or invented attributions.
 13. Done slides hold finished work only; each answers: what was done, is it fixed (on production
-    since when), what is next. Put that in the caption.
+    since when), what is next. Put that in the caption. Work that is only in the test version says
+    so in the card label ("W WERSJI TESTOWEJ"), never "TERAZ". Before against after compares the
+    same measure on both sides, named once above the cards.
+13a. A finding whose cause we know gets a follow-up slide right after it that shows the cause
+    (23.11.2026: "potem nie ma followup a przecież mamy teorię dlaczego tak się dzieje").
 14. Done and To do slides carry `problem=`: the problem the work solved, shown as a small
     warm-yellow "Problem: …" line above the headline.
 15. Retention (team decision of 19.11.2026): core retention counts only people who use the mobile
@@ -62,11 +79,31 @@ Arrow keys and the tree both navigate; the browser remembers the current slide.
 ## Rules for the look
 
 16. Anything about an interface: a real screenshot at phone width (from the browser or a phone),
-    never a mock-up drawn from memory.
-17. Mechanisms: `journey()` (icons on a line), Przed / Teraz as two cards with `pair()`.
-    Numbers: `hbar()` (horizontal bars), `vbars()` (a few vertical bars) or `lines()` (history
-    solid, forecast dashed, small samples faded). Counts of people: `grid()` or `big()`.
+    never a mock-up drawn from memory, cropped to what matters (empty backdrop cut off; 23.11.2026:
+    "strasznie długa karta"). A two-step feature gets two screenshots side by side with a short
+    caption under each.
+17. Charts over tables and text (23.11.2026: "Jak najmniej rzeczy pokazuj w tabelach i jako tekst.
+    Jak najwięcej w wykresach liniowych, w wykresach przepływów (Sankey) wtedy kiedy trzeba, w
+    wykresach słupkowych"). When the person names a chart type, use exactly that one. Pick by
+    what the data is:
+    - **Trend over weeks:** line chart, one line per thing, its name written at the end of the line
+      (leader lines when ends crowd), value labels on the main lines, the base under each x label,
+      stopped things marked "· ostatnio 12.11". Never a legend dot (23.11.2026: "zielona kropka z
+      dupy, która nic nie oznacza"), never a dot grid or table for a trend.
+    - **Flow or loss of people:** Sankey normalised to 100, real base under the "100"; before
+      against after as two Sankeys on the same scale, one above the other (23.11.2026: "Przepływy
+      i gubienie pokazujemy sankeyem a nie tablicami"). End states are fair and exhaustive (e.g.
+      "weszło na stronę / weszło do aplikacji / zniknęło", 23.11.2026: "Tak będzie fair"); a middle
+      step only when the data splits every branch exactly.
+    - **What ran when** (ads, campaigns, releases): calendar view, continuous days in columns, one
+      row per item under its parent, cell brightness = volume with a labelled scale, a red "koniec
+      D.M" at the end of each stopped row, a dashed marker on the key day.
+    - **Comparison of a few values:** bars, `hbar()` or `vbars()`.
+    - **Mechanism that is not a flow:** `journey()`, or Przed / Teraz with `pair()` and parallel rows.
+    - **A single count of people:** `big()` or `grid()`.
+    Sankey and calendar have no helper yet: draw them as inline SVG in the deck script.
 18. Never text boxes joined by arrows, never a raw dashboard screenshot, never emoji as icons.
+    Every colour sits next to the name it stands for; a colour that needs a legend is a bug.
     Icons are Lucide (`IC` in `build_deck.py`; add more from lucide.dev with `IC.update`).
 19. No em or en dashes anywhere (`Deck.write` refuses them in headlines, problems and captions).
 20. The caption (`cap=`) under the chart: date range, what the number means in one sentence, source.
